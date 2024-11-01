@@ -35,13 +35,13 @@ def get_stats(data):
     #add second element (hr) to hr list
     hr.append(x[1])
 
-  #get mean and standard deviation for temperatures
+  #get mean and standard deviation for temperatures (WITH DDOF = 1)
   temps_mean = np.mean(temps)
-  temps_std = np.std(temps)
+  temps_std = np.std(temps, ddof = 1)
 
-  #get mean and standard deviation for heart rates
+  #get mean and standard deviation for heart rates (WITH DDOF = 1)
   hr_mean = np.mean(hr)
-  hr_std = np.std(hr)
+  hr_std = np.std(hr, ddof = 1)
 
   return temps_mean, temps_std, hr_mean, hr_std
    
@@ -165,7 +165,7 @@ def naive_bayes_classifier(dataset_filepath, patient_measurements):
 
 def main():
   #edit filepaths as needed
-  most_likely_class, class_probabilities = naive_bayes_classifier("C:/Users/micha/Desktop/School/COMP3106/COMP3106A2/Examples/Example0/dataset.csv", "C:/Users/micha/Desktop/School/COMP3106/COMP3106A2/Examples/Example0/patient_measurements.txt")
+  most_likely_class, class_probabilities = naive_bayes_classifier("C:/Users/micha/Desktop/COMP3106A2/Examples/Example2/dataset.csv", "C:/Users/micha/Desktop/COMP3106A2/Examples/Example2/patient_measurements.txt")
   #print most likely class and probabilities
   print(most_likely_class, class_probabilities)
   
